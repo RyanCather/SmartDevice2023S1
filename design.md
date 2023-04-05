@@ -4,7 +4,6 @@
 
 I'm making a smart house
 
-
 ## Behaviours
 
 > Add Behaviours here. Delete this comment.
