@@ -2,7 +2,7 @@
 
 ## Smart Device Theme
 
-> Include your theme here. Delete this comment.
+I'm making a smart house
 
 
 ## Behaviours
