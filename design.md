@@ -8,4 +8,5 @@ I'm making a smart house
 
 > Add Behaviours here. Delete this comment.
 
-1. Behaviour 1
+1. When the horn button (crash sensor) is pressed on my smart car, the horn (piezo buzzer) is sounded”.
+
