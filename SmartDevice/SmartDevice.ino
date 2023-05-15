@@ -8,7 +8,7 @@ RTC_Millis rtc;     // Software Real Time Clock (RTC)
 DateTime rightNow;  // used to store the current time.
 
 // SD Card - Confirm Pin
-#define SDpin 53
+#define SDpin 10
 
 void setup() {
   // put your setup code here, to run once:
@@ -28,4 +28,41 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  airConditioning();
+  panicRoom();
+  drivewayNotificiationSystemProcess();
+  delay(250);
 }
+
+/*
+ Using the temperature, determine if the fan should be on or off.
+ @params none
+ @return none
+*/
+void airConditioning() {
+
+}
+
+/*
+ If the user presses the panic button (crash sensor), sound the alarm (piezo)
+ @params none
+ @return none
+*/
+void panicRoom() {
+
+}
+
+
+
+/*
+ If the user presses the panic button (crash sensor), sound the alarm (piezo)
+ @params none
+ @return none
+*/
+void drivewayNotificiationSystemProcess() {
+
+}
+
+
+
+
