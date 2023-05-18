@@ -8,7 +8,7 @@ RTC_Millis rtc;     // Software Real Time Clock (RTC)
 DateTime rightNow;  // used to store the current time.
 
 // SD Card - Confirm Pin
-#define SDpin 10
+#define SDpin 53
 
 void setup() {
   // put your setup code here, to run once:
@@ -21,9 +21,9 @@ void setup() {
   Serial.print("Initializing SD card...");
   if (!SD.begin(SDpin)) {
     Serial.println("initialization failed!");
-    while (1)
-      ;
+    while (1);
   }
+  logEvent("System Initlisation");
 }
 
 void loop() {
