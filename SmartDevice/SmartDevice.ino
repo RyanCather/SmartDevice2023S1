@@ -34,7 +34,7 @@ void setup() {
   pinMode(ledRed, OUTPUT);
   pinMode(ledYellow, OUTPUT);
   pinMode(ledGreen, OUTPUT);
-  logEvent("System Initlisation");
+  logEvent("System Initilisation");
 }
 
 void loop() {
