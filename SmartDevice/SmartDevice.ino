@@ -15,6 +15,13 @@ DateTime rightNow;  // used to store the current time.
 #define ledYellow A1
 #define ledGreen A2
 
+// DFRobot Motor
+int E2 = 11;
+int M2 = 10;
+
+// Crash Sensor / Button
+#define crashSensor 7
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);  // Open serial communications and wait for port to open:
@@ -34,6 +41,13 @@ void setup() {
   pinMode(ledRed, OUTPUT);
   pinMode(ledYellow, OUTPUT);
   pinMode(ledGreen, OUTPUT);
+
+  //DFRobot Motor
+  pinMode(M2, OUTPUT);
+
+  // Crash Sensor / Button
+  pinMode(crashSensor, INPUT);
+
   logEvent("System Initilisation");
 }
 
@@ -69,6 +83,17 @@ void trafficLightTest() {
  @return none
 */
 void airConditioning() {
+  int speedValue;
+  int crashSensorValue = digitalRead(crashSensor);
+  if (crashSensorValue == 0) {
+    logEvent("Button Pressed");
+    speedValue = 0;  // Can be 0-255.
+  } else {
+    
+    speedValue = 255;  // Can be 0-255.
+  }
+  digitalWrite(M2, HIGH);
+  analogWrite(E2, speedValue);  //PWM Speed Control
 }
 
 /*
