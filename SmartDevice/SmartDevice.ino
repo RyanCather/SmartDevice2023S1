@@ -10,6 +10,15 @@ DateTime rightNow;  // used to store the current time.
 // SD Card - Confirm Pin
 #define SDpin 10
 
+// Traffic Lights - LED Outputs
+#define ledRed A0
+#define ledYellow A1
+#define ledGreen A2
+
+// Motor Module
+int E1 = 6;
+int M1 = 7;
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);  // Open serial communications and wait for port to open:
@@ -24,6 +33,18 @@ void setup() {
     while (1)
       ;
   }
+
+  // Traffic Lights - LED Outputs
+  pinMode(ledRed, OUTPUT);
+  pinMode(ledYellow, OUTPUT);
+  pinMode(ledGreen, OUTPUT);
+
+  pinMode(M1, OUTPUT);
+
+  // Real Time Clock (RTC)
+  rtc.begin(DateTime(F(__DATE__), F(__TIME__)));
+  Serial.println("initialization done.");
+  logEvent("System Initialisation...");
 }
 
 void loop() {
@@ -40,7 +61,6 @@ void loop() {
  @return none
 */
 void airConditioning() {
-
 }
 
 /*
@@ -49,7 +69,6 @@ void airConditioning() {
  @return none
 */
 void panicRoom() {
-
 }
 
 
@@ -60,9 +79,4 @@ void panicRoom() {
  @return none
 */
 void drivewayNotificiationSystemProcess() {
-
 }
-
-
-
-
