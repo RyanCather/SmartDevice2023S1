@@ -43,7 +43,7 @@ void setup() {
     while (1)
       ;
   }
-  
+
   pinMode(M1, OUTPUT);
 
   // Real Time Clock (RTC)
@@ -84,6 +84,21 @@ void loop() {
  @return none
 */
 void airConditioning() {
+  // Collect the temperature
+  // if temperature > 20, then turn fan on. If not turn fan off.
+
+
+  // int crashSensorValue = digitalRead(crashSensor);
+  int lineSensorValue = digitalRead(lineSensorPin);
+  if (lineSensorValue == HIGH) {
+    int speedValue = 255;  // Can be 0-255.
+    digitalWrite(M1, HIGH);
+    analogWrite(E1, speedValue);  //PWM Speed Control
+  } else {
+    int speedValue = 0;  // Can be 0-255.
+    digitalWrite(M1, HIGH);
+    analogWrite(E1, speedValue);  //PWM Speed Control
+  }
 }
 
 /*
@@ -92,6 +107,7 @@ void airConditioning() {
  @return none
 */
 void panicRoom() {
+
 }
 
 
