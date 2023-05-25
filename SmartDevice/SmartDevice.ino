@@ -15,9 +15,19 @@ DateTime rightNow;  // used to store the current time.
 #define ledYellow A1
 #define ledGreen A2
 
-// Motor Module
 int E1 = 6;
 int M1 = 7;
+
+// Servo
+#include <Servo.h>
+Servo myservo;
+
+// Moisture Sensor
+#define moisturePin A5
+
+// Sonar - HC-SR04
+#define echoPin 6   // attach pin D2 Arduino to pin Echo of HC-SR04
+#define trigPin A4  //attach pin D3 Arduino to pin Trig of HC-SR04
 
 void setup() {
   // put your setup code here, to run once:
@@ -33,6 +43,12 @@ void setup() {
     while (1)
       ;
   }
+  
+  pinMode(M1, OUTPUT);
+
+  // Real Time Clock (RTC)
+  rtc.begin(DateTime(F(__DATE__), F(__TIME__)));
+  Serial.println("initialization done.");
 
   // Traffic Lights - LED Outputs
   pinMode(ledRed, OUTPUT);
@@ -41,9 +57,16 @@ void setup() {
 
   pinMode(M1, OUTPUT);
 
-  // Real Time Clock (RTC)
-  rtc.begin(DateTime(F(__DATE__), F(__TIME__)));
-  Serial.println("initialization done.");
+  // Moisture Sensor
+  pinMode(moisturePin, INPUT);
+
+  // Sonar - HC-SR04
+  pinMode(trigPin, OUTPUT);  // Sets the trigPin as an OUTPUT
+  pinMode(echoPin, INPUT);   // Sets the echoPin as an INPUT
+
+  // Servo
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+
   logEvent("System Initialisation...");
 }
 
