@@ -1,3 +1,5 @@
+// Ryan's Code.
+
 // SD Card Module
 #include <SPI.h>
 #include <SD.h>
@@ -11,6 +13,7 @@ DateTime rightNow;  // used to store the current time.
 #define SDpin 10
 
 // Traffic Lights - LED Outputs
+
 #define ledRed A0
 #define ledYellow A1
 #define ledGreen A2
@@ -26,6 +29,15 @@ Servo myservo;
 #define moisturePin A5
 
 // Sonar - HC-SR04
+/*
+Analysis
+
+
+
+Critical Analysis
+
+
+*/
 #define echoPin 6   // attach pin D2 Arduino to pin Echo of HC-SR04
 #define trigPin A4  //attach pin D3 Arduino to pin Trig of HC-SR04
 
@@ -36,13 +48,13 @@ void setup() {
     delay(1);  // wait for serial port to connect. Needed for native USB port only
   }
 
-  // SD Card initialisation
-  Serial.print("Initializing SD card...");
-  if (!SD.begin(SDpin)) {
-    Serial.println("initialization failed!");
-    while (1)
-      ;
-  }
+  // // SD Card initialisation
+  // Serial.print("Initializing SD card...");
+  // if (!SD.begin(SDpin)) {
+  //   Serial.println("initialization failed!");
+  //   while (1)
+  //     ;
+  // }
 
   pinMode(M1, OUTPUT);
 
@@ -79,6 +91,14 @@ void loop() {
 }
 
 /*
+Each function should do the following:
+1 - read input
+2 - Do some processing
+3 - Output
+
+*/
+
+/*
  Using the temperature, determine if the fan should be on or off.
  @params none
  @return none
@@ -107,7 +127,11 @@ void airConditioning() {
  @return none
 */
 void panicRoom() {
-
+  // read crash sensor
+  // if true 
+    // output to piezo (pin 3)
+  // else 
+    // output notone to pin 3.
 }
 
 
